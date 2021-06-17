@@ -7,6 +7,8 @@ The purpose of this app was to showcase my abilities as a newly-minted web devel
 
 After identifying the problems, I decided to create an app that would allow for improved coordination between students and their parents or students and their spouses and would provide more feedback and resources.
 
+I created several models, a user friendly interface, and used browser automation to streamline the application process to the FAFSA demo site.
+
 ### System Info
 
 I run my machine on Mint, the following commands work for my terminal. Your commands may vary based on your operating system.
@@ -64,20 +66,40 @@ Gems needed
 
 ` cd fafsa-helper`
 
+* To open project from CLI with VScode
+    ` code .`
+
+* And then to use the live rails server
+    `rails s`
+
+    * go to browser and go to localhost:3000 in the url
+
+    or
+
+    * ctrl and click the link that appears in terminal after running that command.
 
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
 
-Things you may want to cover:
+### Current State of the App
 
-* Ruby version
+* Users create accounts with their personal information. 
+    * This info is considered to be their profile details but it will also be used to populate their FAFSA answers
+* Users then answer questions which record in the fafsa_app model.
+* When users submit their applications, the app connects to a demo FAFSA site and automates the creation of an account and their application.  
 
-* System dependencies
 
-* Configuration
+### Future of the App
 
-* Database creation
+I ran into some issues with the automation portion of the app. That is, there were some elements that simply could not be found by watir and therefore stalled the process. Because of this the following must be done:
 
-* Database initialization
+    * Create a catch all for when the automation runs into an problem. 
+    * Add more robust control logic in the automation commands.
+    * Create another set of commands for the parents to include their information.
+
+Aside from the automation issues, I left much to be done concerning the models. There should be another model created for the parents of the users. The associations should/could has_many_through.
+
+I would like to make more improvements in the user interface, specifically making the forms more appealing and user friendly. 
+
+#### If you are interested in collaborating, please reach out.
+
 

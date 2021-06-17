@@ -4,5 +4,5 @@ class User < ApplicationRecord
   devise :database_authenticatable, :registerable,
          :recoverable, :rememberable, :validatable
 
-         has_many :fafsa_apps
+         has_many :fafsa_apps, dependent: :delete_all, validate: false
 end

@@ -1,0 +1,117 @@
+<h1 class="heading bg subtitle">Sign Up to Get Started!</h1>
+
+<%= form_for(resource, as: resource_name, url: registration_path(resource_name)) do |f| %>
+  <%= render "devise/shared/error_messages", resource: resource %>
+
+  
+<form> 
+
+<div class="horizontal-con">
+
+  <div class="form-div">
+<h2> Tell Us a Little Bit About Yourself </h2>  
+    <div class="field">
+    What is your legal first name?
+        <% f.label :first_name %><br />
+        <%= f.text_field :first_name, class:"input" %>
+    </div>
+
+<div class="field">
+What is your legal last name?
+  <% f.label :last_name %><br />
+  <%= f.text_field  :last_name, class:"input"   %>
+</div>
+
+<div class="field">
+Choose a username
+  <%= f.label :username %><br />
+  <%= f.text_field  :username, class:"input" %>
+</div>
+
+<div class="field">
+If you have a middle name, what is your middle initial?
+  <% f.label :mid_init %><br />
+  <%= f.text_field  :mid_init, class:"input" %>
+</div>
+
+<div class="field">
+What is a good email for you?
+    <% f.label :email %><br />
+    <%= f.email_field :email, autofocus: true, autocomplete: "email", class:"input" %>
+  </div>
+
+ <div class="field"> 
+ Do you have phone number?  
+    <% f.label :phone %><br />
+    <%= f.telephone_field :phone, class:"input" %>
+</div>
+
+<div  class="field"  >
+Which best applies to you?
+    <% f.label :sex %><br />
+    <%= f.select :sex, ["", "assigned male at birth", "assigned female at birth"],{}, {:class=> "input" } %>
+</div>
+
+<div class="field">
+What is your date of birth?
+   <%f.label :dob%><br />
+  <%= f.date_field :dob, class:"input"%>
+</div>
+
+<div class="field">
+  Which applies to you?
+  <% f.label :student%><br />
+  <%= f.select :student, ["","I am the student", "I am a parent", "Other"],{}, {:class=> "input" }%>
+</div>
+ 
+
+<div class="field">
+Street Address
+  <% f.label :address %><br />
+  <%= f.text_field  :address, class:"input" %>
+</div>
+
+<div class="field">
+City
+  <% f.label :city %><br />
+  <%= f.text_field  :city, class:"input" %>
+</div>
+
+<div class="field">
+State
+  <% f.label :state %><br />
+  <%= f.text_field  :state, class:"input" %>
+</div>
+
+<div class="field">
+Zip code
+  <% f.label :zip%><br />
+  <%= f.text_field  :zip, class:"input"%>
+</div>
+
+
+  <div class="field">
+    <%= f.label :password %>
+    <% if @minimum_password_length %>
+    <em>(<%= @minimum_password_length %> characters minimum)</em>
+    <% end %><br />
+    <%= f.password_field :password, autocomplete: "new-password", class:"input" %>
+  </div>
+
+  <div class="field">
+    <%= f.label :password_confirmation %><br />
+    <%= f.password_field :password_confirmation, autocomplete: "new-password", class:"input" %>
+  </div>
+<div classr="center"> 
+  <div  class="actions">
+    <%=   f.submit "Sign up", class:"nav submit " %>
+  </div>
+  </div>
+</div>
+  </div>
+<% end %>
+
+</form>
+
+
+<%= render "devise/shared/links" %>

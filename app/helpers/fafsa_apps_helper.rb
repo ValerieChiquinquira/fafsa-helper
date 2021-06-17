@@ -1,0 +1,2 @@
+module FafsaAppsHelper
+end

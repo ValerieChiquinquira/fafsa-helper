@@ -1,0 +1,91 @@
+<% require 'watir'%>
+
+<%require 'webdrivers'%>
+
+browser.button(id: 'headerSaveBtn').click
+browser.button(id: 'headerExitBtn').click
+
+<% browser = Watir::Browser.new %>
+
+<% browser.goto 'https://fafsademo.test.ed.gov/spa/fafsa/#/LOGIN?locale=en_US' %>
+
+<% if @user.student == 'I am the student' %>
+    <% sleep 2 %>
+    <% browser.radio(value: 'fsaid').when_present.click %>
+    <% browser.text_field(id: 'fsaIdOrEmail').set 'newuser69' %>
+    <% browser.text_field(id: 'password').set 'Firstyear69' %>
+<% else %>
+    <% sleep 2 %>
+    <% browser.radio(value: 'pii').click%>
+<% end %>    
+
+<% browser.button(id: 'next').click %>
+<% browser.button(text: 'ACCEPT').click %>
+<% sleep 2 %>
+
+<% if  browser.button(text: 'CONTINUE').exists? %>
+    <% browser.button(text: 'CONTINUE').click %>
+    <% sleep 1%>
+    <% browser.text_field(id: 'saveKey').set '5239' %>
+    <% browser.button(text: 'NEXT').click %>
+    <% sleep 5%>
+        <% if browser.button(text: 'NEXT').exists? %>
+            <% browser.button(text: 'NEXT').click %> 
+        <% else %>
+            <% browser.button(id: 'next').click %> 
+        <% end %>    
+<% else %>    
+    <% browser.button(id: 'startCurrentCycleAppBtnId').click %>
+        <% sleep 3 %>
+    <% browser.text_field(id: 'saveKey').set '5239' %>
+    <% browser.text_field(id: 'saveKeyVerified').set '5239' %>
+        <% sleep 3%>
+        <% browser.button(text: 'NEXT').click %>
+        <% sleep 3%>
+        <% if  browser.button(text: 'NEXT').exists? %>
+            <% browser.button(text: 'NEXT').click %>
+         <% else %>
+            <% browser.button(id: 'next').click %>
+        <%end%>
+<% end %>
+
+<% browser.text_field(id: 'student_firstName').set @user.first_name %>
+
+<% browser.text_field(id: 'student_middleInit').set @user.mid_init %>
+
+<% browser.text_field(id: 'student_lastName').set @user.last_name %>
+
+<% browser.text_field(id: 'student_dob').set @user.dob.to_s.unpack('A4xA2xA2').rotate.join('/') %>
+
+<% browser.button(id: 'next').click %>
+
+<%browser.text_field(id: 'student_email').set @user.email%>
+
+<%browser.text_field(id: 'student_emailVerified').set @user.email%>
+
+<%browser.text_field(id: 'student_phone').set @user.phone%>
+
+<%browser.button(id: 'next').click%>
+
+<%browser.text_field(id: 'student_address').set @user.address %>
+
+<%browser.text_field(id: 'student_city').set @user.city %>
+
+<%browser.select(id: 'student_state').select @user.state %>
+
+<%browser.text_field(id: 'student_zip').set @user.zip%>
+
+<%browser.button(id: 'next').click%>
+
+<% sleep 3 %>
+
+<% browser.link(id: 'headerSaveBtn').click%>
+
+<% sleep 2 %>
+<% browser.link(id: 'headerExitBtn').click%>
+
+
+<%browser.button(id: 'modalMessageOKBtn').click%> 
+
+<% browser.close%>
+

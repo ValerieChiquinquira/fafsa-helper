@@ -1,0 +1,46 @@
+
+<% if @user.student == "I am the student" %>
+           <h2> Student Account Details </h2> 
+           <h3> Hi, <%=@user.username%>! </h3>
+        <% elsif @user.student == "I am a parent" %>
+        <h2> Parent Account Details </h2> 
+        <% else %>
+        <h2>  Account Details </h2>  
+         <% end %>   
+
+<div class="big-box">
+
+    <div class="small-box">
+
+         <h5> Name: <%= @user.first_name%> <%=@user.last_name%></h5>
+        <h5><%=@user.dob.to_s.unpack('A4xA2xA2').rotate.join('/')%></h5>
+
+        
+        <h5> Street Address: <%=@user.address%></h5>
+        <h5> City: <%=@user.city %> </h5>
+        <h5> State: <%=@user.state %> </h5>
+        <h5> Zip Code: <%=@user.zip %> </h5>
+<hr>
+        <h2> Contact Details </h2>
+        <h5>Phone number:<%= @user.phone%></h5>
+        <h5>Email: <%= @user.email%></h5>
+        
+     
+
+        
+        <%= link_to 'Edit Account', edit_user_registration_path, class:'nav' %>
+    </div>
+
+    <div class="small-box l">
+
+        <p> Kudos! Good on you for taking the first steps to secure your education! One of the best things you can do is to apply for a Federal Pell Grant. Click the link below to see if you might prequalify. </p>
+
+        <h3> What Exactly is a Federal Pell Grant? </h3>
+        <p> A Pell Grant is fund provided by the Federal that you do not have to repay as long certain conditions are meant.</p> 
+            <p> It is basically free money for school as long as you keep your grades up and meet the other criteria. </p>
+            <p> BUT a Pell grant is not the only funds you can get to pay for school</p> 
+        <%= link_to "check real quick if you qualify for a fed pell grant", new_fafsa_app_path,  class:'btn btn-outline-dark' %>
+    </div>
+</div>
+
+

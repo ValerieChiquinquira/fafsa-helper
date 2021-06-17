@@ -1,0 +1,53 @@
+
+
+<h1>Fafsa Apps</h1>
+
+<table>
+  <thead>
+    <tr>
+      <th>Drivers license</th>
+      <th>Drivers license st</th>
+      <th>Drivers license num</th>
+      <th>Citizen</th>
+      <th>Alien num</th>
+      <th>Conviction</th>
+      <th>Parent edu</th>
+      <th>Parent edu2</th>
+      <th>Receive aid</th>
+      <th>Application year</th>
+      <th>Current grade</th>
+      <th>Bachelors</th>
+      <th>Degree applied</th>
+      <th>user_id</th>
+      <th colspan="4"></th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @fafsa_apps.each do |fafsa_app| %>
+      <tr>
+        <td><%= fafsa_app.drivers_license %></td>
+        <td><%= fafsa_app.drivers_license_st %></td>
+        <td><%= fafsa_app.drivers_license_num %></td>
+        <td><%= fafsa_app.citizen %></td>
+        <td><%= fafsa_app.alien_num %></td>
+        <td><%= fafsa_app.conviction %></td>
+        <td><%= fafsa_app.parent_edu %></td>
+        <td><%= fafsa_app.parent_edu2 %></td>
+        <td><%= fafsa_app.receive_aid %></td>
+        <td><%= fafsa_app.application_year %></td>
+        <td><%= fafsa_app.current_grade %></td>
+        <td><%= fafsa_app.bachelors %></td>
+        <td><%= fafsa_app.degree_applied %></td>
+        <td><%= fafsa_app.user_id %></td>
+        <td><%= link_to 'Show', fafsa_app %></td>
+        <td><%= link_to 'Edit', edit_fafsa_app_path(fafsa_app) %></td>
+        <td><%= link_to 'Destroy', fafsa_app, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+<br>
+
+<%= link_to 'New Fafsa App', new_fafsa_app_path %>

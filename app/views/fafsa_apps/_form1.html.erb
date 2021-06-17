@@ -1,0 +1,85 @@
+<div  class="big-box"> 
+<%= form_with(model: fafsa_app) do |form| %>
+    <% if fafsa_app.errors.any? %>
+      <div id="error_explanation">
+        <h2><%= pluralize(fafsa_app.errors.count, "error") %> prohibited this fafsa_app from being saved:</h2>
+  
+        <ul>
+          <% fafsa_app.errors.each do |error| %>
+            <li><%= error.full_message %></li>
+          <% end %>
+        </ul>
+      </div>
+    <% end %>
+  
+    <%= form.hidden_field :user_id, value: current_user.id %>
+  
+   
+<div class="horizontal-con">
+
+    <div class="form-div">
+          <div class="field">
+            For which academic year are you applying?
+              <%form.label :application_year %><br />
+              <%= form.select :application_year, ['2021 - 2022'],{}, {:class=> "input" } %>
+            </div>
+
+          <div class="field">
+              Have you received a Federal Pell Grant before?
+                  <%form.label :receive_aid %><br />
+                  <%= form.select :receive_aid, ["","I have received aid before", "I have not received aid before"],{}, {:class=> "input" } %>
+          </div>
+              
+          <div class="field">
+            Have you been convicted of a drug offense while recieving aid? 
+                    <%form.label :conviction %><br />
+                    <%= form.select :conviction, [ "I have not been convicted ", "I have been convicted"], {}, {:class=> "input" }%> 
+          </div>
+
+          <div class="field">
+            Which best describes your grade level?
+            <% form.label :current_grade %><br />
+            <%= form.select :current_grade, ['', 'Never attended college/1st yr.', 'Attended college before/1st yr.', '2nd yr./sophomore', '3rd yr./junior', '4th yr./senior', '5th yr./other undergraduate', '1st yr. college graduate/professional (MBA, MD, PhD, etc.)', 'Continuing graduate/professional or beyond (MBA, MD, PhD, etc.)' ],{}, {:class=> "input" } %>
+          </div>
+          
+          <div class="field">
+                What is your citizenship status?
+                    <% form.label :citizen %><br />
+                    <%= form.select :citizen, ['','Yes, I am a U.S. citizen (or U.S. national)', 'No, but I am an eligible noncitizen', 'No, I am not a citizen or eligible noncitizen', "I do not know."] ,{}, {:class=> "input" }%>
+          </div>
+
+          <div class="field">
+            What type of high school do you have?
+              <% form.label :high_school %><br />
+              <%= form.select :high_school, ['','High school diploma', 'GED certificate or state authorized high school equivalent certificate','Home schooled', 'None of the above'],{}, {:class=> "input" } %>
+          </div>
+
+          <div class="field">
+            Will you have your Bachelors by the time you start your school year? 
+              <% form.label :bachelors %><br />
+              <%= form.select :bachelors, ['', 'No', 'Yes'],{}, {:class=> "input" } %>
+          </div>
+
+          <div class="field">
+            For which degree have you applied?
+              <% form.label :degree_applied %><br />
+              <%= form.select :degree_applied, ['1st bachelor\'s degree','2nd bachelor\'s degree', 'Associate degree (occupational or technical program)','Associate degree (general education/transfer program)','Certificate/diploma (occupational/technical/education program of less than 2 yr.)','Certificate/diploma (occupational/technical/education program of at least 2 yr.)','Teaching credential program (nondegree program)','College graduate/professional degree (MBA, MD, PhD, etc.)','Other/undecided'] ,{}, {:class=> "input" }%>
+          </div>
+
+          <div class="actions">
+              <%= form.submit "Do I qualify?",  class:"nav submit "%>
+          </div>
+
+      </div>
+
+ <% end %> 
+
+  <div class="right-box">
+    extra info here
+  </div>
+</div>
+           
+
+  
+
+  

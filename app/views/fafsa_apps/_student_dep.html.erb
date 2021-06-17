@@ -1,0 +1,38 @@
+<%= form_with(model: fafsa_app) do |form| %>
+    <% if fafsa_app.errors.any? %>
+      <div id="error_explanation">
+        <h2><%= pluralize(fafsa_app.errors.count, "error") %> prohibited this fafsa_app from being saved:</h2>
+  
+        <ul>
+          <% fafsa_app.errors.each do |error| %>
+            <li><%= error.full_message %></li>
+          <% end %>
+        </ul>
+      </div>
+    <% end %>
+    
+    <%= form.hidden_field :user_id, value: current_user.id %>
+
+    <div class="form-div">
+        <div class="field">
+          Do you have children who depend 50% or more on you?
+            <% form.label :kids %><br/>
+            <%= form.select :kids, ['', 'Yes', 'No'],{}, {:class=> "input" } %>
+        </div>
+
+        <div class="field">
+          What is your martial status?
+            <% form.label :married %><br/>
+            <%= form.select :married, ['', 'I am single', 'I am married/remarried','I am separated','I am divorced or widowed'] ,{}, {:class=> "input" }%>
+
+        <div class="field">
+          Do you have any dependents, who are not children, who depende 50% or more on you?
+            <%form.label :dep %><br/>
+            <%= form.select :dep, ['', 'Yes', 'No'] ,{}, {:class=> "input" }%>
+        </div>
+    
+    </div> 
+   
+      
+
+<% end %>

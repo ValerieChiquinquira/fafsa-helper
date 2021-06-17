@@ -1,0 +1,53 @@
+<%= form_with(model: fafsa_app) do |form| %>
+    <% if fafsa_app.errors.any? %>
+      <div id="error_explanation">
+        <h2><%= pluralize(fafsa_app.errors.count, "error") %> prohibited this fafsa_app from being saved:</h2>
+  
+        <ul>
+          <% fafsa_app.errors.each do |error| %>
+            <li><%= error.full_message %></li>
+          <% end %>
+        </ul>
+      </div>
+  
+      <% end %>
+    <%= form.hidden_field :user_id, value: current_user.id %>
+  
+
+    <div class="form-div">
+
+        <div class="field">
+            What high school did you attend?
+            <% form.label :high_school_name %><br/>
+            <%= form.text_field :high_school_name, {:class=> "input" } %>
+        </div> 
+
+        <div class="field">
+            In which city is your high school?
+            <% form.label :high_school_city %><br/>
+            <%= form.text_field :high_school_city , {:class=> "input" } %>
+        </div>
+
+        <div class="field">
+            In which state is your high school?
+            <% form.label :high_school_st %><br/>
+            <%= form.select :high_school_st, ['','Alabama', 'Alaska', 'Arizona', 'Arkansas', 'California', 'Colorado', 'Connecticut', 'Delaware', 'District of Columbia', 'Florida', 'Georgia', 'Hawaii',  'Idaho', 'Illinois', 'Indiana','Iowa', 'Kansas', 'Kentucky',  'Louisiana','Maine', 'Maryland', 'Massachusetts', 'Michigan', 'Minnesota', 'Mississippi', 'Missouri','Montana', 'Nebraska', 'Nevada', 'New Hampshire', 'New Jersey', 'New Mexico','New York', 'North Carolina','North Dakota', 'Ohio', 'Oklahoma', 'Oregon', 'Pennsylvania', 'Puerto Rico', 'Rhode Island', 'South Carolina','South Dakota', 'Tennessee','Texas', 'Utah', 'Vermont','Virginia', 'Washington', 'West Virginia', 'Wisconsin', 'Wyoming' ],{}, {:class=> "input" } %>
+        </div>
+
+        <div class="field">
+            Would you be interested in doing a work study program?
+          <% form.label :work_study %><br/>
+          <%= form.select :work_study, ['', 'Yes', 'No', 'I dont know'],{}, {:class=> "input" } %>
+         
+         </div> 
+        <div class="field">
+            What are you housing plans for your time in college?
+          <% form.label :housing_plans%><br/>
+          <%= form.select :housing_plans, ['', 'On Campus', 'With Parent','Off Campus'],{}, {:class=> "input" } %>
+        </div>
+
+ 
+</div>
+
+
+<% end %>

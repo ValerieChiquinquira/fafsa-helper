@@ -1,0 +1,18 @@
+<%= form_with(model: fafsa_app) do |form| %>
+    <% if fafsa_app.errors.any? %>
+      <div id="error_explanation">
+        <h2><%= pluralize(fafsa_app.errors.count, "error") %> prohibited this fafsa_app from being saved:</h2>
+  
+        <ul>
+          <% fafsa_app.errors.each do |error| %>
+            <li><%= error.full_message %></li>
+          <% end %>
+        </ul>
+      </div>
+    <% end %>
+  
+here is info about taxes and income
+
+<%= form.hidden_field :user_id, value: current_user.id %>
+
+<% end %>

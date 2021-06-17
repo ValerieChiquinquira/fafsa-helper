@@ -1,0 +1,31 @@
+# Read about fixtures at https://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  drivers_license: false
+  drivers_license_st: MyString
+  drivers_license_num: MyString
+  citizen: false
+  alien_num: MyString
+  conviction: false
+  parent_edu: MyString
+  parent_edu2: MyString
+  receive_aid: MyString
+  application_year: MyString
+  current_grade: MyString
+  bachelors: MyString
+  degree_applied: MyString
+
+two:
+  drivers_license: false
+  drivers_license_st: MyString
+  drivers_license_num: MyString
+  citizen: false
+  alien_num: MyString
+  conviction: false
+  parent_edu: MyString
+  parent_edu2: MyString
+  receive_aid: MyString
+  application_year: MyString
+  current_grade: MyString
+  bachelors: MyString
+  degree_applied: MyString

@@ -1,0 +1,153 @@
+
+
+ 
+ 
+<h2 class="bg"> Looks like you qualify! Finish the app to make sure! </h2> 
+
+test
+    <p>
+      <strong>Received aid before? </strong>
+      <%= @fafsa_app.receive_aid %>
+    </p>
+
+    <p>
+      <strong>For what year are you applying?:</strong>
+      <%= @fafsa_app.application_year %>
+    </p>
+    <p>
+       <strong>What grade or year are you in?</strong>
+      <%= @fafsa_app.current_grade %>
+  </p>
+
+  <p>
+      <strong>Do you have a bachelors now OR will have one by the start of your application year?</strong>
+      <%= @fafsa_app.bachelors %> 
+  </p>
+
+  <p>
+      <strong>What type of degree are you trying to get?</strong>
+      <%= @fafsa_app.degree_applied %>
+  </p>
+
+  <p>
+      <strong>Conviction:</strong>
+      <%= @fafsa_app.conviction %>
+  </p>
+
+  <p>
+
+        <strong>Citizenship status?:</strong>
+  
+        <%= @fafsa_app.citizen %>
+
+    
+  </p>
+    <p>
+      <strong>Alien num:</strong>
+       <%= @fafsa_app.alien_num %>
+       </p>
+  <p>
+    <strong>High school:</strong>
+ 
+  <%= @fafsa_app.high_school %>
+ 
+</p>
+ 
+
+
+<%= link_to 'Complete My App', edit_fafsa_app_path(@fafsa_app), class:'nav submit' %> 
+<hr>
+
+
+
+
+
+<p>
+ <strong>Do you have a Drivers license:</strong>
+ <%= @fafsa_app.drivers_license %>
+</p>
+
+<p>
+ <strong>In which state did you get your Drivers license?</strong>
+ <%= @fafsa_app.drivers_license_st %>
+</p>
+
+<p>
+ <strong>whats your Drivers license number?:</strong>
+ <%= @fafsa_app.drivers_license_num %>
+</p>
+
+<p>
+ <strong>Interesed in Work Study:</strong>
+ 
+ <%= @fafsa_app.work_study %>
+ 
+</p>
+
+<p>
+ <strong>Foster care:</strong>
+ 
+ <%= @fafsa_app.foster_care %>
+ 
+</p>
+
+<p>
+ <strong>Which high school did you go to?</strong>
+ 
+ <%= @fafsa_app.high_school_name %>
+ 
+</p>
+<p>
+ <strong>Which city was your high school in?</strong>
+ 
+ <%= @fafsa_app.high_school_city %>
+ 
+</p>
+
+<p>
+ <strong>And, which state was your high school in?</strong>
+ 
+ <%= @fafsa_app.high_school_state %>
+ 
+</p>
+
+<p>
+ <strong>Housing plans while your in college?</strong>
+ 
+ <%= @fafsa_app.housing_plans %>
+ 
+</p>
+<p>
+ <strong>Do you have kids that you provide more than 50% of their care?</strong>
+ 
+ <%= @fafsa_app.kids%>
+ 
+</p>
+<p>
+ <strong>Maritial status</strong>
+ 
+ <%= @fafsa_app.married%>
+ 
+</p>
+<p>
+ <strong>Do you have any one that is more than 50% dependent on you?</strong>
+ 
+ <%= @fafsa_app.dep %>
+ 
+</p>
+
+
+<p>
+ <strong>Parent educational history</strong>
+ <%= @fafsa_app.parent_edu %>
+</p>
+
+<p>
+ <strong>Parent educational history</strong>
+ <%= @fafsa_app.parent_edu2 %>
+</p>
+
+<%= link_to ' File My App!',{ controller: "fafsa_apps", action: "submit" } , {class:'nav submit'} %> |
+
+<%= link_to 'Edit My App', edit_fafsa_app_path(@fafsa_app),  {class:'nav submit'} %> 
+

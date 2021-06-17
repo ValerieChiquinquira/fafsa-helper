@@ -1,0 +1,17 @@
+
+
+<nav >
+    <ul class="nav">
+       <li class="current"> <%= link_to 'Home', home_index_path, class:"a"%>
+    
+       <li> <%= link_to 'Resources', home_info_path, class:"a" %>
+   
+             <% if user_signed_in? %> 
+       <li>     <%= link_to "Log Out", destroy_user_session_path, method: :delete, class:"a"%>
+       <li>     <%= link_to "My Account", current_user, class:"a"%>
+             <% else %>
+       <li>     <%= link_to "Create An Account", new_user_registration_path, class:"a"%>
+       <li>     <%= link_to "Log In", new_user_session_path, class:"a"%>
+             <% end %>
+    </ul>
+</nav>

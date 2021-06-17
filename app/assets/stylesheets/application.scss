@@ -1,0 +1,243 @@
+/*
+ * This is a manifest file that'll be compiled into application.css, which will include all the files
+ * listed below.
+ *
+ * Any CSS and SCSS file within this directory, lib/assets/stylesheets, or any plugin's
+ * vendor/assets/stylesheets directory can be referenced here using a relative path.
+ *
+ * You're free to add application-wide styles to this file and they'll appear at the bottom of the
+ * compiled file so the styles you add here take precedence over styles defined in any other CSS/SCSS
+ * files in this directory. Styles in this file should be added after the last require_* statement.
+ * It is generally better to create a new file per style scope.
+ *
+
+ */
+
+
+.header{
+    font-family: 'Barlow', sans-serif;
+    text-align: center;
+    text-transform: uppercase;
+    font-weight: 700;
+    letter-spacing: 2px;
+    color:  #004aad;
+    background: url(/assets/border.svg);
+   background-repeat: no-repeat;
+   background-size: contain;
+   background-position: center; 
+   height:4rem;
+   padding: 1rem 1rem .5rem 1rem;
+}
+ .nav {
+  font-family: 'Barlow', sans-serif;
+    text-align: center;
+    text-transform: uppercase;
+    font-weight: 200;
+    letter-spacing: 1px;
+   
+  }
+  .nav * {
+    -webkit-box-sizing: border-box;
+    box-sizing: border-box;
+    -webkit-transition: all 0.35s ease;
+    transition: all 0.35s ease;
+   
+  }
+  .nav li {
+    display: inline-block;
+    list-style: outside none none;
+    margin: 0.5em 1.5em;
+    padding: 0;
+   
+  }
+  .nav .a {
+    padding: 0.4em 0;
+    color: #004aad;
+    position: relative;
+    text-decoration: none;
+    display: inline-block;
+ 
+  }
+  .nav .a:before {
+    position: absolute;
+    content: '';
+    -webkit-transition: all 0.35s ease;
+    transition: all 0.35s ease;
+    opacity: 0;
+    top: 25%;
+    bottom: 25%;
+    left: 0;
+    right: 0;
+    border-top: 3px solid #5ce1e6;
+    border-bottom: 3px solid #5ce1e6;
+  }
+  .nav .a:hover,
+  .nav .current .a {
+    color: #ff914d;
+  }
+  .nav .a:hover:before,
+  .nav .current .a:before {
+    opacity: 1;
+    top: 0;
+    bottom: 0;
+  }
+ 
+  body {
+    background-color: #f8f8ff;
+  
+  }
+//   https://littlesnippets.net/snip1211
+
+.container{
+  
+    display: flex;
+    justify-content: center;
+    border-top: rgb(240, 240, 240) solid 1px;
+  
+}
+
+
+.inner-container{
+    border-left: rgb(240, 240, 240) solid 1px;
+    border-right:rgb(240, 240, 240) solid 1px;
+    
+    width: 66%;
+}
+
+.footer{
+    position: fixed;
+    bottom: 0;
+  
+}
+
+h1{
+    font-family: 'Barlow', sans-serif;
+    font-weight: 700;
+    letter-spacing: 1.5px;
+  
+}
+
+.bg{
+background-color:#E4FAFA;
+width: 84%;
+border-radius:0  15px 15px 0;
+text-align: left;
+padding-left: 1rem;
+color: #004aad;
+
+}
+*{
+    font-family: 'Barlow', sans-serif;
+    font-weight: 200 bold;  
+    color:  #004aad;
+    
+}
+h2{
+    font-family: 'Barlow', sans-serif;
+    font-weight: 400;  
+    padding-left: 1.5rem;
+}
+
+.list{
+    line-height: 200%;
+    text-decoration:  none;
+   
+}
+
+.horizontal-con{
+
+display: flex;
+flex-direction: row;
+justify-content: space-around;
+padding: 1rem;
+}
+
+.vertical-con{
+
+  display: flex;
+  flex-direction: column;
+  justify-content: space-around;
+  padding: 2rem;
+  }
+.grid{
+ 
+  width: 25%;
+  height: 10rem;
+  padding: 1rem;
+  line-height: 150%;
+  font-weight: bold;
+  background-color:#E4FAFA;
+  box-shadow: 0px 6px 10px rgba(0, 0, 0,0.4);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+}
+
+#call-to{
+ 
+  font-size: 2rem;
+}
+
+
+.center{
+ 
+  display: flex;
+  justify-content: center;
+}
+
+.input{
+  border: none;
+  width: 20rem;
+  height: 2rem;
+  background-color: #f2f3f4;
+  border-radius: 5px;
+  padding-right: 1rem;
+  
+}
+
+
+.form-div{
+  border-radius: 25px;
+  background-color: #D1BFFD;
+  box-shadow: 0px 6px 10px rgba(0, 0, 0,0.4);
+ padding-bottom: 1rem;
+ padding-top: 1rem;
+  width: 28rem;
+}
+
+.field{
+  padding: .5rem;
+}
+
+.submit{
+  color: #5e17eb;
+  border: none;
+  background-color: #D1BFFD;
+  height: 3rem;
+  font-size: 2rem;
+ 
+}
+.actions{
+  display: flex;
+  justify-content: center;
+  padding-bottom: 1rem;
+   display: flex;
+  justify-content: center;
+  align-items: center;
+ 
+}
+
+.submit:hover{
+  border-top: #004aad solid 2px;
+  border-bottom: #004aad solid 2px;
+  -webkit-transition: all 0.35s ease;
+  transition: all 0.35s ease;
+  color: #ff914d;
+ 
+ 
+}
+
+*:focus {
+  outline: solid 1px #5e17eb;
+}

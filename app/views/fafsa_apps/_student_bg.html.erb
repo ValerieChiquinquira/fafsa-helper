@@ -1,0 +1,54 @@
+<%= form_with(model: fafsa_app) do |form| %>
+  <% if fafsa_app.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(fafsa_app.errors.count, "error") %> prohibited this fafsa_app from being saved:</h2>
+
+      <ul>
+        <% fafsa_app.errors.each do |error| %>
+          <li><%= error.full_message %></li>
+        <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <%= form.hidden_field :user_id, value: current_user.id %>
+
+  <div class="form-div">
+  <div class="field">
+  
+  Do you have a drivers license?
+    <%form.label :drivers_license %>
+    <%= form.select :drivers_license, ["",'Yes', 'No'],{}, {:class=> "input" }%>
+  </div>
+ 
+
+  <div class="field">
+  What is your Drivers License number?
+    <% form.label :drivers_license_num %><br/>
+    <%= form.text_field :drivers_license_num, class:"input" %>
+  </div>
+
+  <div class="field">
+  Drivers License St
+  <% form.label :drivers_license_st %><br/>
+  <%= form.text_field :drivers_license_st, class:"input" %>
+</div>
+
+
+  <div class="field">
+  What is your alien registration number?
+    <% form.label :alien_num %><br/>
+    <%= form.text_field :alien_num, class:"input"%>
+  </div>
+
+
+  <div class="field"> 
+  Have you ever been in foster care?
+    <%form.label :foster_care %><br/>
+    <%= form.select :foster_care, ['', 'Yes', 'No'],{}, {:class=> "input" } %>
+  </div>
+
+ 
+ 
+
+<% end %>

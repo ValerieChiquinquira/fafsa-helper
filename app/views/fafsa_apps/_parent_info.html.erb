@@ -1,0 +1,36 @@
+<%= form_with(model: fafsa_app) do |form| %>
+    <% if fafsa_app.errors.any? %>
+      <div id="error_explanation">
+        <h2><%= pluralize(fafsa_app.errors.count, "error") %> prohibited this fafsa_app from being saved:</h2>
+  
+        <ul>
+          <% fafsa_app.errors.each do |error| %>
+            <li><%= error.full_message %></li>
+          <% end %>
+        </ul>
+      </div>
+    <% end %>
+  
+
+
+    <%= form.hidden_field :user_id, value: current_user.id %>
+
+    <div class="form-div">
+  <div class="field">
+    What is the highest education completed by one parent?
+    <%form.label :parent_edu %><br/>
+    <%= form.select :parent_edu, ["","Middle School/Jr. High", "High School", "College or beyond", "Other/unknown"] ,{}, {:class=> "input" }%>
+  </div>
+            
+            
+  <div class="field">
+    What is the highet education completed by the other parent?
+    <% form.label :parent_edu2 %><br/>
+    <%= form.select :parent_edu2, ["","Middle School/Jr. High", "High School", "College or beyond", "Other/unknown"],{}, {:class=> "input" } %>
+  </div>
+</div>
+
+<div class="actions">
+  <%= form.submit "Finish" %>
+</div>
+<% end %>

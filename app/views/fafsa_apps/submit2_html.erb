@@ -1,0 +1,99 @@
+# <%browser.select(id: 'student_citizen').select @user.citizen %>
+
+# <%browser.button(id: 'next').click%>
+
+# <% sleep 3 %>
+
+# <%browser.select(id: 'student_hsCompletionStatus').select @user.high_school %>
+
+# <%browser.select(id: 'student_degreeCert').select @fafsa_app.degree_applied %>
+
+# <% if @fafsa_app.bachelors == 'Yes' %>
+
+#     <%browser.radio(id: 'student_firstDegreeBy0Label').click%>
+
+# <% else @fafsa_app.bachelors == 'No' %>
+
+#     <%browser.radio(id: 'student_firstDegreeBy1Label').click%>
+
+# <% end %>
+# <%browser.select(id: 'student_gradeLevel').select @fafsa_app.current_grade %>
+
+
+# <% if @fafsa.work_study == 'Yes' %>
+
+#     <%browser.radio(id: 'student_workStudy0Label').click%>
+
+# <% elsif @fafsa.work_study == 'No' %>
+
+#     <%browser.radio(id: 'student_workStudy1Label').click%>
+
+# <% else @fafsa.work_study == 'I dont know' %>
+
+#     <%browser.radio(id: 'student_workStudy2Label').click%>
+
+# <% end %>
+
+# <%browser.button(id: 'next').click%>
+
+
+# <% if @user.sex == 'assigned male at birth' %>
+
+#     <%browser.radio(id: 'student_gender0').click%>
+
+
+# <% else @user.sex == 'assigned female at birth' %>
+
+#     <%browser.radio(id: 'student_gender1').click%>
+
+# <% end %>
+
+# <%browser.button(id: 'next').click%>
+
+# <% if @fafsa_app.drivers_license == "Yes" %>
+#     <%browser.text_field(id: 'student_driverLicenseNum').set @fafsa_app.drivers_license_num %>
+#     <%browser.select(id: 'student_driverLicenseState').select @fafsa_app.drivers_license_st %>
+#     <%browser.button(id: 'next').click%>
+# <% else %>
+#     <%browser.button(id: 'next').click%>
+# <% end %>
+
+# <% if @fafsa_app.foster_care == 'Yes' %>
+#     <%browser.radio(id: 'student_fosterCare0').click%>
+# <%  else %>
+#     <%browser.radio(id: 'student_fosterCare1').click%>
+# <% end %>
+
+# <%browser.select(id: 'parents_fatherEducationLevel').select @fafsa_app.parent_edu %>
+
+# <%browser.select(id: 'parents_motherEducationLevel').select @fafsa_app.parent_edu2 %>
+
+# <%browser.button(id: 'next').click%>
+
+# <% if @user.receive_aid == 'I have received aid before' %>
+#     <%browser.radio(id: 'student_fedAid0').click%>
+#     <% if @user.conviction == 'I have not been convicted' %>
+#         <%browser.radio(id: 'student_drugConviction1').click%>
+#     <% else %>
+#         <%browser.radio(id: 'student_drugConviction0').click%>
+#     <% end %>
+# <% else%>
+#     <%browser.radio(id: 'student_fedAid1').click%>
+    
+# <% end %>    
+
+#     <%browser.button(id: 'next').click%>
+
+# <%browser.text_field(id: 'highSchool_schoolName').set @fafsa_app.high_school_name %>
+    
+# <%browser.text_field(id: 'highSchool_locationCity').set @fafsa_app.high_school_city %>
+
+# <%browser.select(id: 'highSchool_locationState').select @fafsa_app.high_school_st %>
+
+# <%browser.button(id: 'next').click%>
+
+# <% if @fafsa_app.know_code == true %>
+#     <%browser.radio(id: 'knowSchoolCode0FauxBtn').click%>
+# <% else %>
+#     <%browser.radio(id: 'knowSchoolCode1FauxBtn').click%>
+# <% end %>
